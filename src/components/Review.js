@@ -63,10 +63,10 @@ const Review = () => {
         <h4 className="author" id={`author-${index + 1}`}>
           {data[index].name}
         </h4>
-        <img src={data[index].image} style={{width:'100px',height:"50px"}} className='person-img' alt={data[index].name} />
+        <img src={data[index].image} className='person-img' alt={data[index].name} />
         <button className='prev-btn' onClick={handlePrevBtn}>Previous</button>
         <button className='next-btn' onClick={handleNextBtn}>Next</button>
-        <button className='random-btn' onClick={handleRandomBtn}>surprise me</button>
+        <button className='random-btn' onClick={handleRandomBtn}>Surprise Me</button>
       </div>
     </div>
   );
