@@ -66,7 +66,7 @@ const Review = () => {
         <img src={data[index].image} style={{width:'100px',height:"50px"}} className='person-img' alt={data[index].name} />
         <button className='prev-btn' onClick={handlePrevBtn}>Previous</button>
         <button className='next-btn' onClick={handleNextBtn}>Next</button>
-        <button className='random-btn' onClick={handleRandomBtn}>Surprise Me</button>
+        <button className='random-btn' onClick={handleRandomBtn}>surprise me</button>
       </div>
     </div>
   );
