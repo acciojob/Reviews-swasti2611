@@ -1,8 +1,7 @@
-<p>Now I can render any React component on any DOM node I want using ReactDOM.render</p>
+import React, { useState } from 'react';
 
-import React from 'react'
-import Review from './Review';
- let reviews=[
+const Review = () => {
+  const [data, setData] = useState([
     {
       id: 1,
       name: 'susan smith',
@@ -39,20 +38,38 @@ import Review from './Review';
       text:
         'Edison bulb put a bird on it humblebrag, marfa pok pok heirloom fashion axe cray stumptown venmo actually seitan. VHS farm-to-table schlitz, edison bulb pop-up 3 wolf moon tote bag street art shabby chic. ',
     },
-  ];
-const App = () => {
+  ]);
+  const [index, setIndex] = useState(0);
+
+  function handleNextBtn() {
+    setIndex((prev) => (prev + 1) % data.length);
+  }
+
+  function handlePrevBtn() {
+    setIndex((prev) => (prev - 1 + data.length) % data.length);
+  }
+
+  function handleRandomBtn() {
+    let random = Math.floor(Math.random() * data.length);
+    setIndex(random);
+  }
+
   return (
     <div>
-    <main>
-      <section className="container">
-      <h1 id="review-heading">Our Reviews</h1>
-      
-        <Review/>
-        
-      </section>
-      </main>
+      <div className="review">
+        <div className='author'>{data[index].name}</div>
+        <div className='job'>{data[index].job}</div>
+        <div className='info'>{data[index].text}</div>
+        <h4 className="author" id={`author-${index + 1}`}>
+          {data[index].name}
+        </h4>
+        <img src={data[index].image} style={{width:'100px',height:"50px"}} className='person-img' alt={data[index].name} />
+        <button className='prev-btn' onClick={handlePrevBtn}>Previous</button>
+        <button className='next-btn' onClick={handleNextBtn}>Next</button>
+        <button className='random-btn' onClick={handleRandomBtn}>Surprise Me</button>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default Review;
